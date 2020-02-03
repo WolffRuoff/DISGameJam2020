@@ -41,13 +41,13 @@ public class Button : MonoBehaviour
         rb2d.velocity = vel;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Needle") || collision.gameObject.CompareTag("Pocket"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (collision.gameObject.CompareTag("Denim")
+        if (collision.gameObject.CompareTag("Denim"))
         {
             onGround = true;
         }
