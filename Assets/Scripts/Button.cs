@@ -12,19 +12,19 @@ public class Button : MonoBehaviour
 
     public float jumpHeight;
 
-    public GameObject denim;
+    private bool onGround;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        onGround = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //rb2d.velocity = new Vector3(speed, -speed);
         Vector3 vel = rb2d.velocity;
         Debug.Log(rb2d.velocity);
         if (vel.magnitude != 0)
@@ -33,8 +33,9 @@ public class Button : MonoBehaviour
             vel.x = vel.x * speed;
             vel.y = vel.y * speed;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && rb2d.IsTouching(denim.GetComponent<Collider2D>()))
+        if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
+            onGround = false;
             vel.y = jumpHeight;
         }
         rb2d.velocity = vel;
@@ -45,6 +46,10 @@ public class Button : MonoBehaviour
         if (collision.gameObject.CompareTag("Needle") || collision.gameObject.CompareTag("Pocket"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (collision.gameObject.CompareTag("Denim")
+        {
+            onGround = true;
         }
     }
 }
