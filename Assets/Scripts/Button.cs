@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
@@ -34,5 +35,13 @@ public class Button : MonoBehaviour
             vel.y = jumpHeight;
         }
         rb2d.velocity = vel;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Needle")|| collision.gameObject.CompareTag("Pocket"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
