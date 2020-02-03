@@ -19,7 +19,7 @@ public class Button : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        onGround = true;
+        onGround = false;
     }
 
     // Update is called once per frame
