@@ -43,7 +43,7 @@ public class Button : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Needle") || collision.gameObject.CompareTag("Pocket"))
+        if (collision.gameObject.CompareTag("Needle")) //|| collision.gameObject.CompareTag("Pocket"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
