@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
-    
+
     Rigidbody2D rb2d;
 
     public float speed;
@@ -39,7 +39,7 @@ public class Button : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Needle")|| collision.gameObject.CompareTag("Pocket"))
+        if (collision.gameObject.CompareTag("Needle") || collision.gameObject.CompareTag("Pocket"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
