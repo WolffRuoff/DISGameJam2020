@@ -23,7 +23,12 @@ public class Button : MonoBehaviour
         //rb2d.velocity = new Vector3(speed, -speed);
         Vector3 vel = rb2d.velocity;
         Debug.Log(rb2d.velocity);
-
+        if (vel.magnitude != 0)
+        {
+            vel.Normalize();
+            vel.x = vel.x * speed;
+            vel.y = vel.y * speed;
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             vel.y = jumpHeight;
