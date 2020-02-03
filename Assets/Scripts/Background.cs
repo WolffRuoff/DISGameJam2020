@@ -11,6 +11,7 @@ public class Background : MonoBehaviour
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
+        targetColor = Color.Lerp(rend.material.color, new Color(Random.value, Random.value, Random.value, 0.7f), Time.deltaTime / timeLeft);
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class Background : MonoBehaviour
             rend.material.color = targetColor;
 
             // start a new transition
-            targetColor = new Color(Random.value, Random.value, Random.value);
+            targetColor = new Color(Random.value, Random.value, Random.value, 0.7f);
             timeLeft = 4.0f;
         }
         else
