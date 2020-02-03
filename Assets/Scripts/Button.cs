@@ -12,7 +12,7 @@ public class Button : MonoBehaviour
 
     public float jumpHeight;
 
-    public GameObject button;
+    public GameObject denim;
 
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Button : MonoBehaviour
             vel.x = vel.x * speed;
             vel.y = vel.y * speed;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && rb2d.IsTouching(button.GetComponent<Collider2D>()))
+        if (Input.GetKeyDown(KeyCode.Space) && rb2d.IsTouching(denim.GetComponent<Collider2D>()))
         {
             vel.y = jumpHeight;
         }
