@@ -41,7 +41,7 @@ public class Button : MonoBehaviour
         rb2d.velocity = vel;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision collision)
     {
         if (collision.gameObject.CompareTag("Needle") || collision.gameObject.CompareTag("Pocket"))
         {
