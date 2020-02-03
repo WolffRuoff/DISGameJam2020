@@ -8,6 +8,7 @@ public class Slope : MonoBehaviour
     public GameObject button;
     public GameObject denim;
 
+    private GameObject prevObj;
     private GameObject lastObj;
 
     // Start is called before the first frame update
@@ -27,6 +28,11 @@ public class Slope : MonoBehaviour
             pos.y -= 6.3f;
             Quaternion rot = denim.transform.rotation;
 
+            if (lastObj != denim)
+            {
+                prevObj = lastObj;
+
+            }
             lastObj = Instantiate(denim, pos, rot);
         }
     }
