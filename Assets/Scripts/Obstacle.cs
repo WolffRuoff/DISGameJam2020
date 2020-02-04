@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public GameObject yarnObstacle;
+    //public GameObject yarnObstacle;
     public GameObject needleObstacle;
 
     public float distanceMin;
@@ -37,8 +37,8 @@ public class Obstacle : MonoBehaviour
     private void SpawnNewObstacle()
     {
         Vector3 spawnPositionDown = transform.position + Vector3.down * Random.Range(distanceMin, distanceMax);
-        Vector3 spawnPositionUp = transform.position + Vector3.up * Random.Range(distanceMin, distanceMax);
+        //Vector3 spawnPositionUp = transform.position + Vector3.up * Random.Range(distanceMin, distanceMax);
         GameObject bottomObstacle = Instantiate<GameObject>(needleObstacle, spawnPositionDown, Quaternion.identity);
-        GameObject topObstacle = Instantiate<GameObject>(yarnObstacle, spawnPositionUp, Quaternion.identity);
+        //GameObject topObstacle = Instantiate<GameObject>(yarnObstacle, spawnPositionUp, Quaternion.identity);
     }
 }

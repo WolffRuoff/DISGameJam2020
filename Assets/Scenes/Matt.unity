@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 451881809}
   - component: {fileID: 451881808}
   m_Layer: 0
-  m_Name: Slope
+  m_Name: SlopeSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2144826068}
-  offsetX: 3
+  offsetX: 4
   offsetY: 0
 --- !u!20 &519420031
 Camera:
@@ -586,7 +586,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -783,6 +783,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515207596337406490, guid: 115182421f33b4a48974cf48f4278ef5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1293590930691469563, guid: 115182421f33b4a48974cf48f4278ef5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -791,7 +796,7 @@ PrefabInstance:
     - target: {fileID: 1293590930691469563, guid: 115182421f33b4a48974cf48f4278ef5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.40004015
+      value: -1.21
       objectReference: {fileID: 0}
     - target: {fileID: 1293590930691469563, guid: 115182421f33b4a48974cf48f4278ef5,
         type: 3}
@@ -811,12 +816,12 @@ PrefabInstance:
     - target: {fileID: 1293590930691469563, guid: 115182421f33b4a48974cf48f4278ef5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.30070576
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1293590930691469563, guid: 115182421f33b4a48974cf48f4278ef5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.953717
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1293590930691469563, guid: 115182421f33b4a48974cf48f4278ef5,
         type: 3}
@@ -836,7 +841,7 @@ PrefabInstance:
     - target: {fileID: 1293590930691469563, guid: 115182421f33b4a48974cf48f4278ef5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5793202664709009527, guid: 115182421f33b4a48974cf48f4278ef5,
         type: 3}
@@ -1082,6 +1087,55 @@ Transform:
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2089934733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2089934734}
+  - component: {fileID: 2089934735}
+  m_Layer: 0
+  m_Name: ObstacleSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2089934734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089934733}
+  m_LocalRotation: {x: -0, y: -0, z: 0.27704164, w: 0.9608579}
+  m_LocalPosition: {x: 3.34, y: -2.03, z: -5030.1753}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1180692428}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2089934735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089934733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca23dcccf57134cd9920c7811df507be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needleObstacle: {fileID: 5793202664709009527, guid: 115182421f33b4a48974cf48f4278ef5,
+    type: 3}
+  distanceMin: 3
+  distanceMax: 5
+  spawnTimer: 2
+  startDelay: 1
 --- !u!1 &2144826065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144826065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 3.1, z: 0}
+  m_LocalPosition: {x: -8.8, y: 2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1199,9 +1253,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0023722649, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8333333
+  m_Radius: 0.6312318
 --- !u!114 &2144826070
 MonoBehaviour:
   m_ObjectHideFlags: 0
