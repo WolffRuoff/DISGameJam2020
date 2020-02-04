@@ -10,7 +10,6 @@ public class ScoreKeeper : MonoBehaviour
 
     TextMesh text;
     private float startTime;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +20,11 @@ public class ScoreKeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = transform.position;
-        pos.x = player.position.x + offsetX;
-        pos.y = player.position.y + offsetY;
-        transform.position = pos;
-
-        text.text = ""+(Time.time - startTime);
+            Vector3 pos = transform.position;
+            pos.x = player.position.x + offsetX;
+            pos.y = player.position.y + offsetY;
+            transform.position = pos;
+            text.text = "" + (Time.time - startTime);
+        
     }
 }
