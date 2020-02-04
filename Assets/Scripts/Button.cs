@@ -45,7 +45,7 @@ public class Button : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Needle")) //|| collision.gameObject.CompareTag("Pocket"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("Title Page");
         }
         if (collision.gameObject.CompareTag("Denim"))
         {
