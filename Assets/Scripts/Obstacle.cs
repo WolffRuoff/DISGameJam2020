@@ -4,41 +4,47 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    //public GameObject yarnObstacle;
     public GameObject needleObstacle;
 
-    public float distanceMin;
-    public float distanceMax;
+    public float YMin;
+    public float YMax;
+    public float XMin;
+    public float XMax;
 
-    public float spawnTimer;
-    public float startDelay;
 
     void Start()
     {
-        timer = startDelay;
+        spawnObj(true);
+        spawnObj(false);
     }
-
-    private float timer;
 
     // Update is called once per frame
     void Update()
     {
-        // The timer will count down until it is lower that 0, then spawn an obstacle and reset
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            SpawnNewObstacle();
-            timer = spawnTimer;
-        }
+
     }
-    /// <summary>
-    /// Spawns two obstacles (up and down)
-    /// </summary>
-    private void SpawnNewObstacle()
+
+    void spawnObj (bool first)
     {
-        Vector3 spawnPositionDown = transform.position + Vector3.down * Random.Range(distanceMin, distanceMax);
-        //Vector3 spawnPositionUp = transform.position + Vector3.up * Random.Range(distanceMin, distanceMax);
-        GameObject bottomObstacle = Instantiate<GameObject>(needleObstacle, spawnPositionDown, Quaternion.identity);
-        //GameObject topObstacle = Instantiate<GameObject>(yarnObstacle, spawnPositionUp, Quaternion.identity);
+        float x;
+        float y = Random.Range(YMin, YMax);
+        float mdpt = (XMin + XMax) / 2;
+
+        if (first)
+        { 
+            x = Random.Range(XMin, mdpt);
+            y = 3;
+        } else
+        {
+            x = Random.Range(mdpt, XMax);
+            y = 1;
+        }
+
+        Vector3 spawnPos = transform.position;
+        spawnPos.x += x;
+        spawnPos.y += y;
+
+        Instantiate(needleObstacle, spawnPos, Quaternion.identity);
     }
+    
 }
