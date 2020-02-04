@@ -26,6 +26,6 @@ public class ScoreKeeper : MonoBehaviour
         pos.y = player.position.y + offsetY;
         transform.position = pos;
 
-        text.text = ""+((Time.time - startTime)*12);
+        text.text = ""+(Time.time - startTime);
     }
 }
